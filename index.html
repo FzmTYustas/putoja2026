@@ -102,12 +102,13 @@
     .toast { position:fixed; z-index:50; left:50%; bottom:24px; transform:translateX(-50%); padding:10px 14px; color:white; background:var(--ink); border:1px solid var(--lime); border-radius:8px; font-size:.84rem; font-weight:850; }
     @media (max-width:760px) {
       .shell { padding:7px 9px 40px; }
-      .mast { min-height:202px; padding:17px 16px; }
+      .mast { min-height:0; padding:17px 16px 18px; }
       .mast:before { width:170px; height:170px; right:-60px; top:-54px; border-width:29px; }
-      h1 { max-width:330px; font-size:clamp(3.05rem,15vw,4.5rem); }
-      .event-line { max-width:210px; margin-top:11px; font-size:.8rem; }
+      h1 { max-width:none; white-space:nowrap; font-size:clamp(2.35rem,12vw,4.2rem); }
+      .event-line { max-width:100%; margin-top:11px; font-size:.8rem; }
       .event-line span:nth-child(2) { display:none; }
-      .totals { right:14px; bottom:14px; gap:11px; }
+      .totals { position:relative; right:auto; bottom:auto; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); width:100%; margin-top:18px; gap:10px; }
+      .totals span { min-width:0; }
       .totals strong { font-size:1.35rem; }
       .snapshot { font-size:.78rem; }
       .search-row { grid-template-columns:1fr 52px; }
