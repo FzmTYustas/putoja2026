@@ -21,17 +21,19 @@
     [hidden], .is-hidden { display:none !important; }
     a { color:inherit; }
     .shell { width:min(1160px,100%); margin:auto; padding:10px 12px 52px; }
-    .mast { position:relative; min-height:230px; padding:24px 22px; overflow:hidden; color:white; background:var(--ink); border-radius:18px 18px 5px 5px; }
-    .mast:before,.mast:after { content:""; position:absolute; border-radius:50%; pointer-events:none; }
+    .mast { position:relative; min-height:0; padding:24px 22px; overflow:hidden; color:white; background:var(--ink); border-radius:18px 18px 5px 5px; }
+    .mast:before,.mast:after { display:none; }
     .mast:before { width:220px; height:220px; right:-48px; top:-86px; border:38px solid var(--lime); }
     .mast:after { width:92px; height:92px; right:126px; bottom:-40px; background:var(--pink); box-shadow:-92px -60px 0 -24px var(--violet),70px -80px 0 -32px var(--cyan); }
     .kicker { position:relative; z-index:1; margin:0 0 10px; color:var(--lime); font-size:.75rem; font-weight:900; letter-spacing:.14em; text-transform:uppercase; }
-    h1 { position:relative; z-index:1; max-width:760px; margin:0; font-family:Impact,"Arial Narrow",sans-serif; font-size:clamp(3.4rem,12vw,7.6rem); font-weight:900; line-height:.82; letter-spacing:-.04em; }
+    h1 { position:relative; z-index:1; max-width:760px; margin:0; font-family:Impact,"Arial Narrow",sans-serif; font-size:clamp(3.4rem,12vw,7.6rem); font-weight:900; line-height:.82; letter-spacing:-.04em; -webkit-text-stroke:2px var(--ink); paint-order:stroke fill; text-shadow:0 2px 0 var(--ink); }
     h1 span { color:var(--pink); }
     .event-line { position:relative; z-index:1; display:flex; flex-wrap:wrap; gap:8px 18px; margin:18px 0 0; color:#ddd9e6; font-size:.9rem; font-weight:700; }
-    .event-line a { color:var(--lime); }
-    .totals { position:absolute; z-index:1; right:22px; bottom:20px; display:flex; gap:18px; text-transform:uppercase; font-size:.7rem; font-weight:850; letter-spacing:.08em; }
-    .totals strong { display:block; color:var(--lime); font-size:1.65rem; line-height:1; }
+    .event-line span, .event-line a { display:inline-block; padding:5px 9px; background:#0f0d15; border:1px solid rgba(255,255,255,.28); border-radius:6px; }
+    .event-line a { color:white; border-color:var(--lime); text-decoration:none; }
+    .totals { position:relative; z-index:1; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); width:min(420px,100%); margin-top:18px; gap:10px; text-transform:uppercase; font-size:.7rem; font-weight:850; letter-spacing:.08em; }
+    .totals span { min-width:0; padding:10px 12px; background:#0f0d15; border:1px solid rgba(255,255,255,.45); border-radius:8px; }
+    .totals strong { display:block; color:white; font-size:1.65rem; line-height:1; }
     .snapshot { display:flex; gap:10px; align-items:flex-start; margin:0; padding:12px 14px; color:#3d3947; background:#e8e5ee; border-left:5px solid var(--violet); font-size:.82rem; line-height:1.4; }
     .snapshot b { white-space:nowrap; }
     .view-tabs { position:sticky; z-index:30; top:0; display:grid; grid-template-columns:1fr 1fr; gap:4px; padding:9px 0; background:var(--paper); }
@@ -105,10 +107,11 @@
       .mast { min-height:0; padding:17px 16px 18px; }
       .mast:before { width:170px; height:170px; right:-60px; top:-54px; border-width:29px; }
       h1 { max-width:none; white-space:nowrap; font-size:clamp(2.35rem,12vw,4.2rem); }
-      .event-line { max-width:100%; margin-top:11px; font-size:.8rem; }
+      .event-line { max-width:100%; align-items:center; margin-top:11px; font-size:.8rem; }
       .event-line span:nth-child(2) { display:none; }
-      .totals { position:relative; right:auto; bottom:auto; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); width:100%; margin-top:18px; gap:10px; }
-      .totals span { min-width:0; }
+      .event-line span, .event-line a { padding:4px 8px; }
+      .totals { width:100%; }
+      .totals span { padding:8px 10px; }
       .totals strong { font-size:1.35rem; }
       .snapshot { font-size:.78rem; }
       .search-row { grid-template-columns:1fr 52px; }
